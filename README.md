@@ -1,5 +1,5 @@
 # About
 
-Trenutni cas Greenwich Mean Time (GMT)
+Trenutni cas - Greenwich Mean Time (GMT)
 
 

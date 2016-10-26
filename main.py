@@ -2,9 +2,9 @@
 import os
 import jinja2
 import webapp2
-import time
 from datetime import datetime
-#from pytz import timezone
+import pytz
+
 
 template_dir = os.path.join(os.path.dirname(__file__), "templates")
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir), autoescape=False)
@@ -33,6 +33,7 @@ class MainHandler(BaseHandler):
     def get(self):
         return self.render_template("hello.html")
 
+
 class BlogHandler(BaseHandler):
     def get(self):
 
@@ -40,11 +41,11 @@ class BlogHandler(BaseHandler):
 
         return self.render_template("blog.html", params=params)
 
+
 class TrenutniCasHandler(BaseHandler):
     def get(self):
 
-        now_utc = str(datetime.now())[:19]
-        #now_ljubljana = now_utc.astimezone(pytz.timezone('Europe/Ljubljana'))
+        now_utc = str(datetime.now(pytz.timezone('Europe/Ljubljana')))[:19]
 
         params = {"cas": now_utc}
 
